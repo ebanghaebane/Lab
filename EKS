@@ -1,0 +1,14 @@
+install eksctl
+
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+
+sudo mv /tmp/eksctl /usr/local/bin
+
+
+Kubectl installation
+
+sudo curl --silent --location -o /usr/local/bin/kubectl   https://s3.us-west-2.amazonaws.com/amazon-eks/1.22.6/2022-03-09/bin/linux/amd64/kubectl
+
+sudo chmod +x /usr/local/bin/kubectl 
+
+eksctl create cluster --name test-eks --region us-east-1 --nodegroup-name my-nodes --node-type t3.small --managed --nodes 2 
