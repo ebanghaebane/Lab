@@ -11,8 +11,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
-variable "vpc_id" { default = "vpc-0bb2b71521ab3e99b" }  # Replace with your VPC ID
-variable "subnet_id" { default = "subnet-xxxxxxxx" }      # Replace with your subnet ID
+variable "vpc_id" { default = "vpc-0bb2b71521ab3e99b" } 
+variable "subnet_id" { default = "subnet-xxxxxxxx" }     
 variable "web_instance_type" { default = "t2.micro" }
 variable "app_instance_type" { default = "t2.micro" }
 variable "db_instance_type" { default = "t2.micro" }
@@ -84,6 +84,6 @@ resource "aws_instance" "db_vm" {
   instance_type          = var.db_instance_type
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.example_sg.id]
-  associate_public_ip_address = false  # Typically DBs are private
+  associate_public_ip_address = false 
   tags = { Name = "DBServer", Role = "Database" }
 }
